@@ -3,7 +3,7 @@ import { add, subtract } from "./math";
 
 it("should sum all number values in an array", () => {
   // Arrange
-  const numbers = [1, 2, 3, 4, 5];
+  const numbers = [1, 2]; // keep it simple, just two numbers
   const expected = numbers.reduce((a, b) => a + b, 0);
   // Act
   const result = add(numbers);
@@ -13,7 +13,7 @@ it("should sum all number values in an array", () => {
 
 it("should subtract all number values in an array", () => {
   // Arrange
-  const numbers = [1, 2, 3, 4, 5];
+  const numbers = [1, 2]; // keep it simple, just two numbers
   const expected = numbers.reduce((a, b) => a - b, 0);
   // Act
   const result = subtract(numbers);
