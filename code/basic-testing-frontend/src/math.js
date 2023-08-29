@@ -1,7 +1,7 @@
 export function add(numbers) {
   let sum = 0;
   for (const number of numbers) {
-    sum += number;
+    sum += +number;
   }
   return sum;
 }
@@ -9,7 +9,7 @@ export function add(numbers) {
 export function subtract(numbers) {
   let subraction = 0;
   for (const number of numbers) {
-    subraction -= number;
+    subraction -= +number;
   }
   return subraction;
 }
