@@ -4,6 +4,15 @@ import { promises as fs } from "fs";
 import writeData from "./io";
 
 vi.mock("fs");
+vi.mock("path", () => {
+  return {
+    default: {
+      join: (...args) => {
+        return args[args.length - 1];
+      },
+    },
+  };
+});
 
 it("should execute the writeFile method", () => {
   const testData = "test";
@@ -12,5 +21,6 @@ it("should execute the writeFile method", () => {
   //return expect(writeData(testData, testFilename)).resolves.toBeUndefined();
 
   writeData(testData, testFilename);
-  expect(fs.writeFile).toHaveBeenCalled();
+  //expect(fs.writeFile).toHaveBeenCalled();
+  expect(fs.writeFile).toHaveBeenCalledWith(testFilename, testData);
 });
