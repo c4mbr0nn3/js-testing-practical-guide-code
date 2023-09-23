@@ -1,7 +1,7 @@
 import { it, describe, expect } from "vitest";
 
-import { validateNotEmpty } from "./../util/validation";
-import { ValidationError } from "./../util/errors";
+import { validateNotEmpty } from "../util/validation";
+import { ValidationError } from "../util/errors";
 
 describe("validateNotEmpty", () => {
   it("should not throw an error for non-empty strings", () => {

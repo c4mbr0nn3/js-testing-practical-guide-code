@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { HttpError, ValidationError } from "./../util/errors";
+import { HttpError, ValidationError } from "../util/errors";
 
 describe("HttpError", () => {
   it("should correctly assign properties", () => {
