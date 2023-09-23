@@ -11,10 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "http-server": "^14.1.0"
+    "http-server": "^14.1.1"
   },
   "devDependencies": {
     "happy-dom": "^2.55.0",
-    "vitest": "^0.9.3"
+    "vitest": "^0.9.4"
   }
 }
