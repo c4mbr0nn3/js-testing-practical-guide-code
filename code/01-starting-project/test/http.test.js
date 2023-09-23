@@ -1,5 +1,6 @@
 import { it, describe, expect, vi } from "vitest";
 import { sendDataRequest } from "../util/http";
+import { HttpError } from "../util/errors";
 
 const responseData = { testKey: "testValue" };
 
@@ -38,5 +39,23 @@ describe("http utils", () => {
     }
 
     expect(errorMessage).not.toBe("No stringified body provided!");
+  });
+
+  it("should throw an HttpError in case of non-ok response", () => {
+    testFetch.mockImplementationOnce((url, options) => {
+      return new Promise((resolve, reject) => {
+        const response = {
+          ok: false,
+          json() {
+            return new Promise((resolve, reject) => {
+              resolve(responseData);
+            });
+          },
+        };
+        resolve(response);
+      });
+    });
+    const testData = { key: "data" };
+    return expect(sendDataRequest(testData)).rejects.toBeInstanceOf(HttpError);
   });
 });
