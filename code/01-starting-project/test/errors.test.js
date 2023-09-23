@@ -11,6 +11,12 @@ describe("HttpError", () => {
     expect(error.message).toBe("Not Found");
     expect(error.data).toEqual({ detail: "Resource not found" });
   });
+
+  it("should contain undefined data if no data is provided as parameter", () => {
+    const error = new HttpError(404, "Not Found");
+
+    expect(error.data).toBeUndefined();
+  });
 });
 
 describe("ValidationError", () => {
